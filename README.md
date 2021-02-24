@@ -10,7 +10,7 @@
 
 Running the TargetValuesPreprocessing script
 
-First use the `logging` module to set create a logger.
+First use the `logging.logging_setup` method to set create a logger.
 
 ```python
 logger = logging.logging_setup(log_level='INFO')
