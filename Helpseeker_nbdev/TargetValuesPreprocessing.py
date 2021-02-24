@@ -28,7 +28,7 @@ def _map_target_polygons(target,target_file,poly_file,target_df_regions):
     target_polygon_paths -> dict[str,str] paths to the polygon .gpkg files\n
     target_df_regions -> list[str]\n
 
-    ouput:
+    returns:
     --------
     mapped_df -> gp.GeoDataFrame
 
