@@ -16,7 +16,7 @@ First use the `logging` module to set create a logger.
 logger = logging.logging_setup(log_level='INFO')
 ```
 
-Get the mapped targets using the `get_target_df` function in the `TargetValuesPreprocessing` module. 
+The `get_target_df` function from the `TargetValuesPreprocessing` module returns a dictionary that maps the targets to their respective poly-mapped values.
 
 ```python
 mapped_targets = TargetValuesPreprocessing.get_target_df(
