@@ -1,13 +1,13 @@
 ---
 
-title: Project name here
+title: Helpseeker_nbdev
 
 
 keywords: fastai
 sidebar: home_sidebar
 
-summary: "Summary description here."
-description: "Summary description here."
+summary: "A demo of nbdev in the context of a deep dive project."
+description: "A demo of nbdev in the context of a deep dive project."
 nb_path: "index.ipynb"
 ---
 <!--
@@ -44,7 +44,7 @@ nb_path: "index.ipynb"
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>pip install your_project_name</code></p>
+<p><code>pip install Helpseeker_nbdev</code></p>
 
 </div>
 </div>
@@ -57,7 +57,7 @@ nb_path: "index.ipynb"
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Fill me in please! Don't forget code examples:</p>
+<p>Running the TargetValuesPreprocessing script</p>
 
 </div>
 </div>
@@ -69,7 +69,75 @@ nb_path: "index.ipynb"
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="mi">1</span><span class="o">+</span><span class="mi">1</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">logging_setup</span><span class="p">(</span><span class="n">log_level</span><span class="o">=</span><span class="s1">&#39;INFO&#39;</span><span class="p">)</span>
+
+<span class="n">mapped_targets</span> <span class="o">=</span> <span class="n">TargetValuesPreprocessing</span><span class="o">.</span><span class="n">get_target_df</span><span class="p">(</span>
+       <span class="n">config</span><span class="o">.</span><span class="n">target_features</span><span class="p">,</span>
+       <span class="n">config</span><span class="o">.</span><span class="n">target_path</span><span class="p">,</span>
+       <span class="n">config</span><span class="o">.</span><span class="n">polygon_path</span><span class="p">,</span>
+       <span class="n">config</span><span class="o">.</span><span class="n">target_df_regions</span><span class="p">,</span>
+       <span class="n">logger</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>{
+ &#34;event&#34;: &#34;Preprocessing target features&#34;,
+ &#34;timestamp&#34;: &#34;datetime.datetime(2021, 2, 23, 23, 38, 59, 12856)&#34;
+}
+{
+ &#34;event&#34;: &#34;mapping homeless polygon&#34;,
+ &#34;timestamp&#34;: &#34;datetime.datetime(2021, 2, 23, 23, 38, 59, 13848)&#34;
+}
+Failed to auto identify EPSG: 7
+{
+ &#34;event&#34;: &#34;homeless polygon mapping completed&#34;,
+ &#34;timestamp&#34;: &#34;datetime.datetime(2021, 2, 23, 23, 38, 59, 110617)&#34;
+}
+{
+ &#34;event&#34;: &#34;mapping suicide polygon&#34;,
+ &#34;timestamp&#34;: &#34;datetime.datetime(2021, 2, 23, 23, 38, 59, 111614)&#34;
+}
+Failed to auto identify EPSG: 7
+{
+ &#34;event&#34;: &#34;suicide polygon mapping completed&#34;,
+ &#34;timestamp&#34;: &#34;datetime.datetime(2021, 2, 23, 23, 38, 59, 205335)&#34;
+}
+{
+ &#34;event&#34;: &#34;mapping violence polygon&#34;,
+ &#34;timestamp&#34;: &#34;datetime.datetime(2021, 2, 23, 23, 38, 59, 206361)&#34;
+}
+Failed to auto identify EPSG: 7
+{
+ &#34;event&#34;: &#34;violence polygon mapping completed&#34;,
+ &#34;timestamp&#34;: &#34;datetime.datetime(2021, 2, 23, 23, 38, 59, 283128)&#34;
+}
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mapped_targets</span><span class="p">[</span><span class="s1">&#39;homeless&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -82,9 +150,100 @@ nb_path: "index.ipynb"
 <div class="output_area">
 
 
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<div class="output_text output_subarea output_execute_result">
-<pre>2</pre>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Year</th>
+      <th>Province</th>
+      <th>Community</th>
+      <th>PIT Total</th>
+      <th>PIT-Sheltered</th>
+      <th>PIT-Unsheltered</th>
+      <th>DV_target</th>
+      <th>CSDNAME</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2002</td>
+      <td>British Columbia</td>
+      <td>Burnaby</td>
+      <td>18</td>
+      <td>14</td>
+      <td>44</td>
+      <td>Burnaby</td>
+      <td>Burnaby</td>
+      <td>POLYGON ((4026984.377 2004001.803, 4027065.283...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2002</td>
+      <td>British Columbia</td>
+      <td>Delta/White Rock</td>
+      <td>11</td>
+      <td>0</td>
+      <td>0</td>
+      <td>None</td>
+      <td>Delta</td>
+      <td>MULTIPOLYGON (((4027416.129 1971099.869, 40275...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2002</td>
+      <td>British Columbia</td>
+      <td>Langley</td>
+      <td>18</td>
+      <td>0</td>
+      <td>0</td>
+      <td>None</td>
+      <td>Langley</td>
+      <td>POLYGON ((4044035.820 1983268.574, 4044044.823...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2002</td>
+      <td>British Columbia</td>
+      <td>Maple Ridge/Pitt Meadows</td>
+      <td>66</td>
+      <td>0</td>
+      <td>0</td>
+      <td>None</td>
+      <td>Maple Ridge</td>
+      <td>POLYGON ((4060993.469 1993881.186, 4061981.717...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2002</td>
+      <td>British Columbia</td>
+      <td>New Westminster</td>
+      <td>74</td>
+      <td>0</td>
+      <td>0</td>
+      <td>New Westminster</td>
+      <td>New Westminster</td>
+      <td>POLYGON ((4031000.411 1995145.954, 4031031.369...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 </div>
 
 </div>
