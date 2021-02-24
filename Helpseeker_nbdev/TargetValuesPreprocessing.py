@@ -18,8 +18,8 @@ warnings.filterwarnings("ignore")
 def _map_target_polygons(target,target_file,poly_file,target_df_regions):
 
     '''
-    given the target as str as input this function reads in the appropriate final targets csv from target_values_paths
-    and appropriate polygons from target_polygon_paths and merges them into a single geo dataframe
+    given the target as str as input this function reads in the appropriate final targets csv from `target_values_paths`
+    and appropriate polygons from `target_polygon_paths` and merges them into a single geo dataframe
 
     parameters:
     ---------
