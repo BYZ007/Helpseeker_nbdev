@@ -31,13 +31,6 @@ nb_path: "index.ipynb"
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>This file will become your README and also the index of your documentation.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Install">Install<a class="anchor-link" href="#Install"> </a></h2>
 </div>
 </div>
@@ -62,6 +55,13 @@ nb_path: "index.ipynb"
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>First use the <a href="/Helpseeker_nbdev/logging.html"><code>logging</code></a> module to set create a logger.</p>
+
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -70,12 +70,34 @@ nb_path: "index.ipynb"
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">logging_setup</span><span class="p">(</span><span class="n">log_level</span><span class="o">=</span><span class="s1">&#39;INFO&#39;</span><span class="p">)</span>
+</pre></div>
 
-<span class="n">mapped_targets</span> <span class="o">=</span> <span class="n">TargetValuesPreprocessing</span><span class="o">.</span><span class="n">get_target_df</span><span class="p">(</span>
-       <span class="n">config</span><span class="o">.</span><span class="n">target_features</span><span class="p">,</span>
-       <span class="n">config</span><span class="o">.</span><span class="n">target_path</span><span class="p">,</span>
-       <span class="n">config</span><span class="o">.</span><span class="n">polygon_path</span><span class="p">,</span>
-       <span class="n">config</span><span class="o">.</span><span class="n">target_df_regions</span><span class="p">,</span>
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Get the mapped targets using the <a href="/Helpseeker_nbdev/core.html#get_target_df"><code>get_target_df</code></a> function in the <a href="/Helpseeker_nbdev/TargetValuesPreprocessing.html"><code>TargetValuesPreprocessing</code></a> module.</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mapped_targets</span> <span class="o">=</span> <span class="n">TargetValuesPreprocessing</span><span class="o">.</span><span class="n">get_target_df</span><span class="p">(</span>
+       <span class="n">path_config</span><span class="o">.</span><span class="n">target_features</span><span class="p">,</span>
+       <span class="n">path_config</span><span class="o">.</span><span class="n">target_path</span><span class="p">,</span>
+       <span class="n">path_config</span><span class="o">.</span><span class="n">polygon_path</span><span class="p">,</span>
+       <span class="n">path_config</span><span class="o">.</span><span class="n">target_df_regions</span><span class="p">,</span>
        <span class="n">logger</span><span class="p">)</span>
 </pre></div>
 
@@ -91,34 +113,34 @@ nb_path: "index.ipynb"
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>{
  &#34;event&#34;: &#34;Preprocessing target features&#34;,
- &#34;timestamp&#34;: &#34;datetime.datetime(2021, 2, 23, 23, 38, 59, 12856)&#34;
+ &#34;timestamp&#34;: &#34;datetime.datetime(2021, 2, 24, 19, 19, 29, 165385)&#34;
 }
 {
  &#34;event&#34;: &#34;mapping homeless polygon&#34;,
- &#34;timestamp&#34;: &#34;datetime.datetime(2021, 2, 23, 23, 38, 59, 13848)&#34;
+ &#34;timestamp&#34;: &#34;datetime.datetime(2021, 2, 24, 19, 19, 29, 167382)&#34;
 }
 Failed to auto identify EPSG: 7
 {
  &#34;event&#34;: &#34;homeless polygon mapping completed&#34;,
- &#34;timestamp&#34;: &#34;datetime.datetime(2021, 2, 23, 23, 38, 59, 110617)&#34;
+ &#34;timestamp&#34;: &#34;datetime.datetime(2021, 2, 24, 19, 19, 29, 267113)&#34;
 }
 {
  &#34;event&#34;: &#34;mapping suicide polygon&#34;,
- &#34;timestamp&#34;: &#34;datetime.datetime(2021, 2, 23, 23, 38, 59, 111614)&#34;
+ &#34;timestamp&#34;: &#34;datetime.datetime(2021, 2, 24, 19, 19, 29, 267113)&#34;
 }
 Failed to auto identify EPSG: 7
 {
  &#34;event&#34;: &#34;suicide polygon mapping completed&#34;,
- &#34;timestamp&#34;: &#34;datetime.datetime(2021, 2, 23, 23, 38, 59, 205335)&#34;
+ &#34;timestamp&#34;: &#34;datetime.datetime(2021, 2, 24, 19, 19, 29, 359865)&#34;
 }
 {
  &#34;event&#34;: &#34;mapping violence polygon&#34;,
- &#34;timestamp&#34;: &#34;datetime.datetime(2021, 2, 23, 23, 38, 59, 206361)&#34;
+ &#34;timestamp&#34;: &#34;datetime.datetime(2021, 2, 24, 19, 19, 29, 360862)&#34;
 }
 Failed to auto identify EPSG: 7
 {
  &#34;event&#34;: &#34;violence polygon mapping completed&#34;,
- &#34;timestamp&#34;: &#34;datetime.datetime(2021, 2, 23, 23, 38, 59, 283128)&#34;
+ &#34;timestamp&#34;: &#34;datetime.datetime(2021, 2, 24, 19, 19, 29, 433868)&#34;
 }
 </pre>
 </div>
@@ -130,6 +152,13 @@ Failed to auto identify EPSG: 7
 </div>
     {% endraw %}
 
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This returns a dictionary of <code>geo dataframes</code> with the target values and geometry corresponding to the locations the target values are referencing.</p>
+
+</div>
+</div>
+</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">

@@ -2,8 +2,6 @@
 > A demo of nbdev in the context of a deep dive project.
 
 
-This file will become your README and also the index of your documentation.
-
 ## Install
 
 `pip install Helpseeker_nbdev`
@@ -12,49 +10,57 @@ This file will become your README and also the index of your documentation.
 
 Running the TargetValuesPreprocessing script
 
+First use the `logging` module to set create a logger.
+
 ```python
 logger = logging.logging_setup(log_level='INFO')
+```
 
+Get the mapped targets using the `get_target_df` function in the `TargetValuesPreprocessing` module. 
+
+```python
 mapped_targets = TargetValuesPreprocessing.get_target_df(
-       config.target_features,
-       config.target_path,
-       config.polygon_path,
-       config.target_df_regions,
+       path_config.target_features,
+       path_config.target_path,
+       path_config.polygon_path,
+       path_config.target_df_regions,
        logger)
 ```
 
     {
      "event": "Preprocessing target features",
-     "timestamp": "datetime.datetime(2021, 2, 23, 23, 38, 59, 12856)"
+     "timestamp": "datetime.datetime(2021, 2, 24, 19, 19, 29, 165385)"
     }
     {
      "event": "mapping homeless polygon",
-     "timestamp": "datetime.datetime(2021, 2, 23, 23, 38, 59, 13848)"
+     "timestamp": "datetime.datetime(2021, 2, 24, 19, 19, 29, 167382)"
     }
     Failed to auto identify EPSG: 7
     {
      "event": "homeless polygon mapping completed",
-     "timestamp": "datetime.datetime(2021, 2, 23, 23, 38, 59, 110617)"
+     "timestamp": "datetime.datetime(2021, 2, 24, 19, 19, 29, 267113)"
     }
     {
      "event": "mapping suicide polygon",
-     "timestamp": "datetime.datetime(2021, 2, 23, 23, 38, 59, 111614)"
+     "timestamp": "datetime.datetime(2021, 2, 24, 19, 19, 29, 267113)"
     }
     Failed to auto identify EPSG: 7
     {
      "event": "suicide polygon mapping completed",
-     "timestamp": "datetime.datetime(2021, 2, 23, 23, 38, 59, 205335)"
+     "timestamp": "datetime.datetime(2021, 2, 24, 19, 19, 29, 359865)"
     }
     {
      "event": "mapping violence polygon",
-     "timestamp": "datetime.datetime(2021, 2, 23, 23, 38, 59, 206361)"
+     "timestamp": "datetime.datetime(2021, 2, 24, 19, 19, 29, 360862)"
     }
     Failed to auto identify EPSG: 7
     {
      "event": "violence polygon mapping completed",
-     "timestamp": "datetime.datetime(2021, 2, 23, 23, 38, 59, 283128)"
+     "timestamp": "datetime.datetime(2021, 2, 24, 19, 19, 29, 433868)"
     }
     
+
+This returns a dictionary of `geo dataframes` with the target values and geometry corresponding to the locations the target values are referencing.
 
 ```python
 mapped_targets['homeless'].head()
